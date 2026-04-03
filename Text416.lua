@@ -20,14 +20,17 @@ local function applyESP(player)
     local hl = char:FindFirstChild(HIGHLIGHT_NAME)
 
     if not hl then
-        hl = Instance.new("Highlight")
-        hl.Name = HIGHLIGHT_NAME
-        hl.FillColor = Color3.fromRGB(255, 0, 0)
-        hl.OutlineColor = Color3.fromRGB(255, 0, 0)
-        hl.FillTransparency = 0.4
-        hl.OutlineTransparency = 0
-        hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
-        hl.Parent = char
+    hl = Instance.new("Highlight")
+    hl.Name = HIGHLIGHT_NAME
+
+    local savedColor = getgenv().CURRENT_ESP_COLOR or Color3.fromRGB(255, 0, 0)
+
+    hl.FillColor = savedColor
+    hl.OutlineColor = savedColor
+    hl.FillTransparency = 0.4
+    hl.OutlineTransparency = 0
+    hl.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+    hl.Parent = char
     end
 
     hl.Enabled = getgenv().PLAYER_ESP_VISIBLE
