@@ -85,7 +85,7 @@ updateAll()
 getgenv().PLAYER_ESP_LOOP = task.spawn(function()
     while getgenv().PLAYER_ESP_VISIBLE do
         updateAll()
-        task.wait(0.3)
+        task.wait(0.7)
     end
 end)
 
@@ -94,7 +94,7 @@ if not getgenv().PLAYER_ESP_CONNECTIONS then
 
     Players.PlayerAdded:Connect(function(player)
         player.CharacterAdded:Connect(function()
-            task.wait(0.5)
+            task.wait(1)
             if getgenv().PLAYER_ESP_VISIBLE then
                 applyESP(player)
             end
